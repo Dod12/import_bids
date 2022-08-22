@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "import_bids"
+description = "Command line tools to import EEG data to the BIDS data format using MNE and MNE-BIDS."
+requires-python = ">=3.7"
+keywords = ["MNE", "MNE-BIDS", "BIDS", "EEG"]
+license = {text = "MIT"}
+classifiers = [
+    "Environment :: Console",
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Human Machine Interfaces",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+]
+dynamic =  ["version", "dependencies", "readme"]
+
+[project.scripts]
+import-bids = "import_bids:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["import_bids*"]
+exclude = ["import_bids.tests*"]
+namespaces = false
+
+[tool.setuptools.dynamic]
+version = {attr = "import_bids.VERSION"}
+readme = {file = ["README.rst", "USAGE.rst"]}
+dependencies = {file = ["requirements.txt"]}
