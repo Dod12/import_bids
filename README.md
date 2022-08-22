@@ -2,7 +2,11 @@
 
 Simple CLI for importing EEG data to BIDS format.
 
-## Usage:
+## Installation
+
+Clone the repo and run pip install on the root directory.
+
+## Usage
 
 ```
 usage: import-bids [-h] [--eog EOG CONFIG FILE] [--ref EOG CONFIG FILE]
